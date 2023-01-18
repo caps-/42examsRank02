@@ -6,10 +6,10 @@
  *
  * So basically we figure out which number is bigger, a or b, and then give n
  * that value. Why? Because the lcm must be at least whatever the highest value
- * is that we passed to the function. Get me? Then we just jump in to a recursive
- * loop that checks to see if the remainder of n divided by both and b is zero. 
- * If it is, it means we've found the lowest common multiple! If not, we 
- * increment n by 1 and then repeat the loop. */
+ * is that we passed to the function. Yeah? Then we just in to a recursive loop
+ * that checks to see if the remainder of n divided by both a and b is zero. If
+ * it is, it means we've found the lowest common multiple! If not we increment n
+ * by 1 and then repeat the loop. */
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
 	unsigned int	n;
