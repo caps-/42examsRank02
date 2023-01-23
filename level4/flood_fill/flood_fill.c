@@ -11,7 +11,7 @@
 void	ft_fill(char **tab, t_point size, char target, int row, int col)
 {
 	if (row < 0 || col < 0 || row >= size.y || col >= size.x)
-		return;
+		return; //stop function if there's negative fuckery going on
 	if (tab[row][col] == 'F' || tab[row][col] != target)
 		return;
 	tab[row][col] = 'F';
@@ -76,20 +76,20 @@ char** make_area(char **a, t_point size)
 int main(void)
 {
 	t_point size = {8, 5};
-	t_point begin = {0, 0};
+	t_point begin = {1, 1};
     char **area;
 	char *zone[] = {
-		"1 1 1 1 1 1 1 1",
-		"1 0 0 0 0 0 0 1",
-		"1 0 0 1 0 0 0 1",
-		"1 0 0 0 0 0 1 1",
-		"1 1 1 0 0 1 0 1",
+		"- - - - - - - -",
+		"- 0 0 0 0 0 0 -",
+		"- 0 0 - 0 0 0 -",
+		"- 0 0 0 0 0 - -",
+		"- - - - - - 0 -",
 	};
 
     area = make_area((char **)zone, size);
 	print_tab(area, size);
 	flood_fill(area, size, begin);
-	printf("\n");
+	printf("\n***\n\n");
 	print_tab(area, size);
 	return (0);
 }
