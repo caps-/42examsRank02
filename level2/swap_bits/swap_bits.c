@@ -28,7 +28,7 @@ unsigned char	swap_bits(unsigned char octet)
 {
 	return ((octet >> 4 | octet << 4));
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -39,4 +39,4 @@ int	main(void)
 	printf("\"t\" after bits have been swapped: %c\n", swap_bits(c1));
 	printf("\"G\" after bits have been swapped: %c\n", swap_bits(c2));
 	return (0);
-}
+}*/
