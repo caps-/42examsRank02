@@ -1,5 +1,8 @@
 #include <unistd.h>
 
+/* Super easy to do. We move through the string, and any time we encounter a '_'
+ * charcter we move one place ahead and change the letter to uppercase before
+ * going ahead and writing out the rest of the string. */
 void    snake_to_camel(char *s)
 {
         int     i = 0;
