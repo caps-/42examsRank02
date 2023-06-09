@@ -1,3 +1,6 @@
+/* Recursively adding 1 (for the current element of the list) to the next element
+ * until we're all out of elements. The test functions take longer to write than
+ * the actual function we need to submit lol. */
 #include "ft_list.h"
 
 int	ft_list_size(t_list *begin_list)
