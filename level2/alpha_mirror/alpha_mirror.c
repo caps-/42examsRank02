@@ -1,5 +1,6 @@
 #include <unistd.h>
 
+/* Just some simple arithmetic using ASCII values, that's all it needs. */
 void	alpha_mirror(char *s)
 {
 	int	i = 0;
