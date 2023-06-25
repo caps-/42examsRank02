@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 			while (argv[1][i] == '\0' || argv[1][i] == ' ' || argv[1][i] == '\t')
 				i--; //move back one position to ignore whitespace at the very end
 			end = i; //this i value will mark the end of the string/word
-			while (argv[1][i] && argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
+			while (argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
 				i--; //now we move back through the word
 			start = i + 1; //this will mark the start of the word
 			int	flag;
