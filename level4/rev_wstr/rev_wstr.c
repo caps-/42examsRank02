@@ -23,10 +23,7 @@ int	main(int argc, char **argv)
 			int	flag;
 			flag = start;
 			while (start <= end)
-			{
-				write(1, &argv[1][start], 1);
-				start++;
-			}
+				write(1, &argv[1][start++], 1);
 			if (flag != 0)
 				write(1, " ", 1); //if not at the start we'll add space and do next word
 		}
