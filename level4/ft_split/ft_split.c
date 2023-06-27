@@ -24,14 +24,14 @@ int	wordcount(char *str)
 	return (count);
 }
 
-/* Copies n characters from s2 over to s1 and returns it. */
-char	*ft_strcpy(char *s1, char *s2, int n)
+/* Copies n characters from src over to dst and returns it. */
+char	*ft_strcpy(char *src, char *dst, int n)
 {
 	int i = -1;
 
-	while (++i < n && s2[i])
-		s1[i] = s2[i];
-	s1[i] = '\0';
+	while (++i < n && src[i])
+		dst[i] = src[i];
+	dst[i] = '\0';
 	return (s1);
 }
 
@@ -61,7 +61,7 @@ char	**ft_split(char *str)
 		if (i > j)
 		{
 			array[k] = malloc(sizeof(char *) * ((i - j) + 1));
-			ft_strcpy(array[k++], &str[j], i - j);
+			ft_strcpy(&str[j], array[k++], i - j);
 		}
 	}
 	array[k] = NULL;
