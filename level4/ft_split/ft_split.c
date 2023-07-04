@@ -32,7 +32,7 @@ char	*ft_strcpy(char *src, char *dst, int n)
 	while (++i < n && src[i])
 		dst[i] = src[i];
 	dst[i] = '\0';
-	return (s1);
+	return (dst);
 }
 
 /* It's all about that main while loop. Our i variable moves past any whitespace
