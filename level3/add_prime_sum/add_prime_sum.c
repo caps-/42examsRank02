@@ -3,31 +3,11 @@
 /* Function to write numbers to the output. */
 void	ft_putnbr(int n)
 {
-	char c;
+	char	number[10] = "0123456789";
 
-	//If the number passed to the program isn't positive we need to display a 0
-	//on the ouput.
-	if (n < 0)
-		write(1, "0", 1);
-	//If it's less than 10 we write n + 48, which will be the ascii value for
-	//that particular number. If it's larger than 10 we write the number divided
-	//by 10, then the modulo/remainder. So like if it's the number 23, the else statement
-	//would be saying:
-	//
-	//ft_putnbr(20 / 10 = 2);
-	//ft_putnbr(20 % 10 = 3);
-	//
-	//Which would write 23 to the output. Cool!
-	if (n < 10)
-	{
-		c = n + 48;
-		write(1, &c, 1);
-	}
-	else
-	{
+	if (n > 9)
 		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
+	write(1, &number[n % 10], 1);
 }
 
 /* An implementation of the atoi function. */
