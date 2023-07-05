@@ -21,19 +21,25 @@ int	*ft_rrange(int start, int end)
 	}
 	return (array); //return the filled array!
 }
+
 /*
 #include <stdio.h>
 
 int	main(void)
 {
 	int	i = 0;
-	int	*array  = ft_rrange(-2, 7);
+	int	*rrange = ft_rrange(7, -2);
 
+	printf("---------------------\n");
 	while (i <= 9)
 	{
-		printf("%d, ", array[i]);
+		printf("%d", rrange[i]);
+		if (rrange[i] == -2)
+			break;
+		printf(", ");
 		i++;
 	}
 	printf("\n");
 	return (0);
-}*/
+}
+*/
