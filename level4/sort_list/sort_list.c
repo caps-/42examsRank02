@@ -8,10 +8,9 @@
  * paramaters, just tell it what type to expect.*/
 t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	t_list	*start_of_list;
-	int		temp;
+	int 	temp;
+	t_list	*start_of_list = lst; //start_of_list is basically the start of lst
 
-	start_of_list = lst; //start_of_list is basically the start of lst
 	while (lst-> next != 0)
 	{
 		//if the first data value is greater than the second one we'll go in to
