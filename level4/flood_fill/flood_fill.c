@@ -2,8 +2,8 @@
  * so_long project? I did fract-ol instead, so this one was an absolute fucking
  * mystery to me. Also the subject description is really, really terrible so
  * given my complete lack of context for anything it took me forever to figure
- * out what it was even trying to say. So with that all being said, let's jump
- * in and figure this thing out. */
+ * out what it was even trying to say. So with that all being said, here's the
+ * code. */
 
 #include "flood_fill.h"
 
