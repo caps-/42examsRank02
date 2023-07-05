@@ -35,7 +35,7 @@ int	ft_atoi(char *str)
 int	is_prime(int n)
 {
 	//Is the number 1? Or even worse, negative? Sorry, not a prime!
-	if (n <= 1)
+	if (n < 2)
 		return (0);
 	//I won't go in to all of the maths here, but basically we only need to
 	//divide by numbers up to the square root of n to see if n is prime or not.
@@ -63,8 +63,7 @@ int	main(int argc, char **argv)
 		ft_putnbr(sum);
 	}
 	else
-		write(1, "0", 1);
-	write(1, "\n", 1);
+		write(1, "0\n", 2);
 
 	return (0);
 }
