@@ -51,5 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# vim swapfiles
+# vim swapfiles settings
 *.swp
+*.vim
