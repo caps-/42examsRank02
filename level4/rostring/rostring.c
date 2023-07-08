@@ -42,12 +42,10 @@ void	rostring(char *s)
 		write(1, &s[i++], 1); //then print the first word on the end!
 }
 
-/*
 int	main(int argc, char **argv)
 {
-	if (argc > 1 && argv[1])
+	if (argc > 1 && argv[1]) //don't do argc == 2, it has to be this condition
 		rostring(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }
-*/
