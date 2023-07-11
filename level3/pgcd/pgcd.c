@@ -7,8 +7,8 @@
  * we go again, this time using the smaller number and the remainder. If our
  * numbers were 42 and 10, it would be:
  *
- * 42 / 10 = 4 R 2
- * 10 / 2 = 5 R 0
+ * 42 / 10 = 4 mod 2
+ * 10 / 2 = 5 mod 0
  * therefore the gcd = 2
  *
  * Code wise, it's a single while loop that loops as long as n1 / n2 has a
