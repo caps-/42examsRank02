@@ -61,6 +61,7 @@ int	main(int argc, char **argv)
 			if (is_prime(number--))
 				sum += (number + 1);
 		ft_putnbr(sum);
+		write(1, "\n", 1)
 	}
 	else
 		write(1, "0\n", 2);
