@@ -9,19 +9,17 @@ int	is_whitespace(char c)
 /* Returns the number of words in a string. */
 int	wordcount(char *str)
 {
-	int	i = 0;
-	int	count = 0;
+	int	wc = 0;
 
-	while (str[i])
+	while (*str)
 	{
-		while (str[i] && is_whitespace(str[i]))
-			i++;
-		if (str[i])
-			count++;
-		while (str[i] && !is_whitespace(str[i]))
-			i++;
+		while (*str && is_whitespace(*str))
+			str++;
+		wc++;
+		while (*str && !is_whitespace(*str))
+			str++;
 	}
-	return (count);
+	return (wc);
 }
 
 /* Copies n characters from src over to dst and returns it. */
@@ -50,7 +48,9 @@ char	**ft_split(char *str)
 	int		k = 0;
 	int		wc = wordcount(str);
 	char	**array = malloc(sizeof(char *) * (wc + 1));
-
+	//don't forget to set sizeof to (char *), that shit is a pointer and you'll
+	//get junk if you just use (char). Same goes for below.
+	
 	while (str[i])
 	{
 		while (str[i] && is_whitespace(str[i]))
