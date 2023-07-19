@@ -23,7 +23,7 @@ int	wordcount(char *str)
 }
 
 /* Copies n characters from src over to dst and returns it. */
-char	*ft_strcpy(char *src, char *dst, int n)
+char	*ft_strcpy(int n, char *src, char *dst)
 {
 	int i = -1;
 
@@ -50,7 +50,7 @@ char	**ft_split(char *str)
 	char	**array = malloc(sizeof(char *) * (wc + 1));
 	//don't forget to set sizeof to (char *), that shit is a pointer and you'll
 	//get junk if you just use (char). Same goes for below.
-	
+
 	while (str[i])
 	{
 		while (str[i] && is_whitespace(str[i]))
@@ -61,7 +61,7 @@ char	**ft_split(char *str)
 		if (i > j)
 		{
 			array[k] = malloc(sizeof(char *) * ((i - j) + 1));
-			ft_strcpy(&str[j], array[k++], i - j);
+			ft_strcpy(i - j, &str[j], array[k++]);
 		}
 	}
 	array[k] = NULL;
