@@ -1,4 +1,6 @@
-/* Pretty straight forward, not much to say with this one. */
+/* We'll move through two strings as long as the characters are matching.
+ * If/when they don't match we stop and return the value of the char from s1
+ * subtracted from s2. */
 int     ft_strcmp(char *s1, char *s2)
 {
         int     i = 0;
