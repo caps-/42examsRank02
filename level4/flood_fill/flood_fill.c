@@ -1,95 +1,87 @@
-/* Oh boy. So I think for this one to make sense you had to have done the
- * so_long project? I did fract-ol instead, so this one was an absolute fucking
- * mystery to me. Also the subject description is really, really terrible so
- * given my complete lack of context for anything it took me forever to figure
- * out what it was even trying to say. So with that all being said, here's the
- * code. */
-
-#include "flood_fill.h"
-
-/* */
-void	ft_fill(char **tab, t_point size, char target, int row, int col)
+/* Defining our t_point structure for x and y coordinates. */
+typedef struct	s_point
 {
+	int			x;
+	int			y;
+}				t_point;
+
+/* A recursive function to fill the grid or whatever it is you're filling. If
+ * the current row or column values are outsize of the coordinates of the grid,
+ * if the current coords already filled or if they're not specified as a target
+ * then we skip this iteration of the function. If we're inside the grid and
+ * the current coordinate is a target we'll set it's contents to an F. Then we
+ * run the whole fill function again four times, one position up, down, left and
+ * right of the current one. It'll keep doing this until all reachable
+ * coordinates have been filled. */
+void	fill(char **tab, t_point size, char target, int row, int col)
+{
+	//if the coords are out of bounds
 	if (row < 0 || col < 0 || row >= size.y || col >= size.x)
-		return; //stop function if there's negative fuckery going on
+		return;
+	//if current pos is either already filled or is not a target to fill
 	if (tab[row][col] == 'F' || tab[row][col] != target)
 		return;
+	//fill current coordinate with 'F'
 	tab[row][col] = 'F';
 
-	ft_fill(tab, size, target, row -1, col);
-	ft_fill(tab, size, target, row +1, col);
-	ft_fill(tab, size, target, row, col - 1);
-	ft_fill(tab, size, target, row, col + 1);
+	//go forth and flood fill!
+	fill(tab, size, target, row -1, col);
+	fill(tab, size, target, row +1, col);
+	fill(tab, size, target, row, col -1);
+	fill(tab, size, target, row, col +1);
 }
 
-/* */
+/* Really we're just using the flood_fill() function as starting point, sending
+ * the starting coordinates to the function above which will actually do the
+ * filling. The target variable takes whatever character is at that coordinate
+ * and uses it as the charater to fill/replace with an F. */
 void	flood_fill(char **tab, t_point size, t_point begin)
 {
 	char	target = tab[begin.y][begin.x];
-	ft_fill(tab, size, target, begin.y, begin.x);
+
+	fill(tab, size, target, begin.y, begin.x);
 }
 
-/* Main function, don't include this in the actual exam! */
-
-#include <stdio.h>
+/* Ugly ass 42 code
 #include <stdlib.h>
+#include <stdio.h>
 
-void print_tab(char **a, t_point size)
+char** make_area(char** zone, t_point size)
 {
-    int i;
-    int j;
-    i = 0;
-    while (i < size.y)
-    {
-        j = 0;
-        while (j < size.x)
-        {
-            printf("%c ", a[i][j]);
-            j++;
-        }
-        i++;
-        printf("\n");
-    }
-}
+	char** new;
 
-char** make_area(char **a, t_point size)
-{
-    char **res;
-    int  i, j;
+	new = malloc(sizeof(char*) * size.y);
+	for (int i = 0; i < size.y; ++i)
+	{
+		new[i] = malloc(size.x + 1);
+		for (int j = 0; j < size.x; ++j)
+			new[i][j] = zone[i][j];
+		new[i][size.x] = '\0';
+	}
 
-    res = malloc(sizeof(char *) * size.y);
-    i = 0;
-    while (i < size.y)
-    {
-        res[i] = malloc(sizeof(char *) * (size.x + 1));
-        j = 0;
-        while (j < size.x)
-        {
-            res[i][j] = a[i][j * 2];
-            j++;
-        }
-        i++;
-    }
-    return (res);
+	return new;
 }
 
 int main(void)
 {
 	t_point size = {8, 5};
-	t_point begin = {1, 1};
-    char **area;
 	char *zone[] = {
-		"- - - - - - - -",
-		"- 0 0 0 0 0 0 -",
-		"- 0 0 - 0 0 0 -",
-		"- 0 0 0 0 0 - -",
-		"- - - - - - 0 -",
+		"11111111",
+		"10001001",
+		"10010001",
+		"10110001",
+		"11100001",
 	};
 
-    area = make_area((char **)zone, size);
-	print_tab(area, size);
+	char**  area = make_area(zone, size);
+	for (int i = 0; i < size.y; ++i)
+		printf("%s\n", area[i]);
+	printf("\n");
+
+	t_point begin = {7, 4};
 	flood_fill(area, size, begin);
-	printf("\n***\n\n");
-	print_tab(area, size);
+	for (int i = 0; i < size.y; ++i)
+		printf("%s\n", area[i]);
 	return (0);
 }
+*/
