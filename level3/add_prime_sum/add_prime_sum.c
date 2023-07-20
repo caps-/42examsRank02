@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		int	sum = 0;
-		int	number = ft_atoi((argv[1]));
+		int	number = ft_atoi(argv[1]);
 
 		while (number > 0)
 			if (is_prime(number--))
