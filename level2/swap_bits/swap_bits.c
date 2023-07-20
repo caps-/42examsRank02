@@ -26,17 +26,15 @@
  * binary value for 'G'! */
 unsigned char	swap_bits(unsigned char octet)
 {
-	return ((octet >> 4 | octet << 4));
+	return (octet >> 4 | octet << 4);
 }
 /*
 #include <stdio.h>
 
-int	main(void)
+int     main(void)
 {
-	char	c1 = 't';
-	char	c2 = 'G';
-
-	printf("\"t\" after bits have been swapped: %c\n", swap_bits(c1));
-	printf("\"G\" after bits have been swapped: %c\n", swap_bits(c2));
-	return (0);
-}*/
+        printf("-----------------------\n");
+        printf("t after bit swap becomes %c\n", swap_bits('t'));
+        printf("G after bit swap becomes %c\n", swap_bits('G'));
+}
+*/
