@@ -6,26 +6,23 @@
  * we've checked em all and then return the final result. */
 int	max(int *tab, unsigned int len)
 {
-	unsigned int	i = 0;
-	int				result = tab[i];
+        int     result = tab[len];
 
-	while (i++ < len)
-	{
-		if (result < tab[i])
-		{
-			result = tab[i];
-		}
-	}
-	return (result);
+        while (len-- > 0)
+        {
+                if (result < tab[len])
+                        result = tab[len];
+        }
+        return (result);
 }
 
 /*
-int	main(void)
-{
-	int	n[] = {8593, 48954382, 694, -89456245};
+#include <stdio.h>
 
-	printf("--------------------\n");
-	printf("%d\n", max(n, 4));
-	return (0);
+int     main(void)
+{
+        int     tab[8] = {1, 8, 16, 0, 64, 3, 52, 5};
+
+        printf("%d\n", max(tab, 8));
+        return (0);
 }
-*/
