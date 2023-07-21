@@ -11,12 +11,9 @@
 
 void	fprime(int n)
 {
-	int	i = 1;
-
 	if (n == 1)
 		printf("1");
-  
-	while (n >= i++)
+	for (int i = 2; n >= i; i++)
 	{
 		if (n % i == 0)
 		{
