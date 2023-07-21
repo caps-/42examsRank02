@@ -1,14 +1,18 @@
+/* Actually a pretty simple one, just remember to write a function to print
+ * numbers to the output. I kept main clean by using a break statement in the
+ * tab_mult() function to stop the function from printing a newline after 9x so
+ * we can have a typical (by my standards anyway) main. */
+
 #include <unistd.h>
 
-/* ft_atoi() again, same old. */
 int	ft_atoi(char *str)
 {
-	int	i = 0;
 	int	sign = 1;
+	int	result = 0;
 
 	while (*str)
 	{
-		while (*str == ' ' || (*str >= 9 && *str <= 13))
+		while (*str <= 32)
 			str++;
 		if (*str == '-')
 			sign = -1;
@@ -16,51 +20,41 @@ int	ft_atoi(char *str)
 			str++;
 		while (*str >= '0' && *str <= '9')
 		{
-			i = i * 10 + *str - 48;
+			result = result * 10 + *str - 48;
 			str++;
 		}
 	}
-	return (sign * i);
+	return (sign * result);
 }
 
-void	ft_putnum(int n)
+void	ft_putnbr(int n)
 {
 	char	number[10] = "0123456789";
 
 	if (n > 9)
-		ft_putnum(n / 10);
+		ft_putnbr(n / 10);
 	write(1, &number[n % 10], 1);
 }
 
-/* So I used this one with grademe.fr and it passed, but I haven't tried it in
- * the exam. They want the number given to the program as well as that number x 9
- * to to not be any larger than INT_MAX, at least that's what I'm assuming the
- * subject text means. I have NO idea if we're allowed to use INT_MAX/limits.h
- * and you can get all the way fucked if you think I'm going to remember the
- * actual numerical value. SO yeah, I skipped it. */
 void	tab_mult(int n)
 {
-	int	i = 1;
-
-	while (i <= 9)
+	for (int i = 1; i < 10; i++)
 	{
-		ft_putnum(i);
+		ft_putnbr(i);
 		write(1, " x ", 3);
-		ft_putnum(n);
+		ft_putnbr(n);
 		write(1, " = ", 3);
-		ft_putnum(i * n);
+		ft_putnbr(i * n);
+		if (i == 9)
+			break;
 		write(1, "\n", 1);
-		i++;
 	}
 }
 
-/*
 int	main(int argc, char **argv)
 {
-	if (argc != 2)
-		write(1, "\n", 1);
-	else
+	if (argc == 2)
 		tab_mult(ft_atoi(argv[1]));
+	write(1, "\n", 1);
 	return (0);
 }
-*/
