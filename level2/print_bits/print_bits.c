@@ -1,5 +1,5 @@
 /* Some bitwise stuff fi dem. For each bit we right shift octet and then do a
- * bitwise AND operation on it with whatever value i currentl has. Quick,
+ * bitwise AND operation on it with whatever value i currently has. Quick,
  * handwavy reminder of how the & operator works:
  *
  * It takes two numbers, compares the bits of each one and then returns 1 if the
