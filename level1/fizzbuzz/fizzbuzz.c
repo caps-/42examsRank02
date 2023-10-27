@@ -11,9 +11,7 @@ void	ft_putnbr(int n)
 
 int	main(void)
 {
-	int	i = 0;
-
-	while (i <= 100)
+	for (int i = 1; i <= 100; i++)
 	{
 		if (i % 15 == 0)
 			write(1, "fizzbuzz", 8);
@@ -23,7 +21,6 @@ int	main(void)
 			write(1,  "buzz", 4);
 		else
 			ft_putnbr(i);
-		i++;
 		write(1, "\n", 1);
 	}
 	return (0);
